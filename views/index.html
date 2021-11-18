@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- PAGE settings -->
   <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
-  <title>12 Factor Dog App</title>
+  <title>12 Factor App</title>
   <!-- CSS dependencies -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    type="text/css">
   <link rel="stylesheet" href="css/flat.css" type="text/css">
   <script src="js/calls.js"></script>
 
@@ -16,35 +17,59 @@
 
 <body>
   <!-- Intro -->
-  <div class="py-5 bg-light">
+  <div class="py-2">
     <div class="container">
       <div class="row bg-info p-4">
-        <div class="p-4 col-md-6 bg-light" id="environment">
-          <h2 class="mb-3">The 12factor-dog-app</h2>
-          <p class="my-4">Sample <a href="https://12factor.net">12 Factor app</a> to demonstrate how Cloud Apps are built 🐶</p>
-          <p class="m-0">Environment Config</p>
+        <div class="p-2 col-md-12 bg-light text-left" id="environment">
+          <h2 class="mb-1">The 12-factor-app</h2>
+          <p class="my-1">Sample <a href="https://12factor.net">12 Factor app</a> to demonstrate how Cloud Apps are built</p>
+          <p class="m-0"><b>Environment Config</b></p>
         </div>
-        <div class="p-0 col-md-6 text-center">
-          <a class="btn btn-primary" href="#" onclick="randomDog()">Next Dog</a>
-          <a class="btn btn-secondary" href="#"  onclick="addDog()">Add dog to Collection</a>
-          <img id="random-dog" class="img-fluid d-block" src="">
-         </div>
+        <div class="py-2 p-0 col-md-5 text-center">
+          <a class="btn btn-primary" href="#" onclick="randomMasterData()">Next Record from API</a>
+          <a class="btn btn-secondary" href="#" onclick="addMasterData()">Insert</a>
+          <table>
+            <tr>
+              <td >Code</td>
+              <td>Name</td>
+              <td>Value</td>
+            </tr>
+            <tr>
+              <td id="col1"></td>
+              <td id="col2"></td>
+              <td id="col3"></td>
+            </tr>
+          </table>
+        </div>
+        <!-- Gallery -->
+        <div class="py-2 p-10 col-md-7 text-center">
+          <h4 class="mb-3">Database</h4>
+          <div class="container-fluid">
+            <div class="row" id="masterData-container">
+              <table id="dbRow">
+                <tr>
+                  <td>Code</td>
+                  <td>Name</td>
+                  <td>Value</td>
+                  <td>Type</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- Gallery -->
-  <div class="section">
-    <h2 class="mb-3">Dog Collection (Database)</h2>
-    <div class="container-fluid">
-      <div class="row" id="dogs-container">
-    </div>
-  </div>
-  <!-- Footer -->
-  <div class="text-center bg-dark pt-5"></div>
-  <!-- JavaScript dependencies -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <!-- Footer -->
+    <div class="text-center bg-dark pt-5"></div>
+    <!-- JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

@@ -76,7 +76,7 @@ let Disconnect = function () {
 
 let Select = function () {
     return new Promise(function (resolve, reject) {            
-        pgClient.query('SELECT * FROM dog_collection')
+        pgClient.query('SELECT * FROM masterData_collection')
         .then((res) => {
             resolve(res.rows)
         }).catch((err) => {
@@ -88,8 +88,8 @@ let Select = function () {
 
 let Insert = function (data) {
     return new Promise(function (resolve, reject) {    
-        const text = 'INSERT INTO dog_collection(url,breed, subbreed) VALUES($1, $2, $3)'  
-        const values =[data, process.env.DOG_BREED, process.env.DOG_SUBBREED]      
+        const text = 'INSERT INTO masterData_collection(id,name,value,masterdata) VALUES($1, $2, $3, $4)'  
+        const values =[data.id, data.name, data.value, process.env.MASTERDATA]
         pgClient.query(text,values)
         .then((res) => {
             console.log(data+ " added to collection")

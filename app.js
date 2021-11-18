@@ -2,8 +2,9 @@
 console.log('Loading node modules')
 const express = require('express');
 const path = require('path');
+
 /* Load Local Modules */
-const dogs = require('./modules/dogs');
+const masterData = require('./modules/masterdata');
 const db = require('./modules/db');
 
 console.log('Configuring Express App')
@@ -22,8 +23,7 @@ db.Connect().catch((err) => {
 //EndPoint to Retrieve Environment Variables
 app.get('/Environment', function (req, res) {
     var data = {
-        DOG_BREED: process.env.DOG_BREED,
-        DOG_SUBBREED: process.env.DOG_SUBBREED,
+        MASTERDATA: process.env.MASTERDATA,
         CF_INSTANCE_INDEX: (process.env.CF_INSTANCE_INDEX * 1) + 1,
         HOME: process.env.HOME
     }
@@ -31,40 +31,42 @@ app.get('/Environment', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     res.send(data);
 })
-//EndPoint to Retrieve Random Dog from Dog Service
-app.get('/RandomDog', function (req, res) {
-    dogs.GetDog().then((data) => {
+
+//EndPoint to Retrieve Random Master Data from Dummy APIs Service
+app.get('/RandomMasterData', function (req, res) {
+    masterData.GetMasterData().then((data) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json');
         res.send(data);
     })
     .catch((error) => {
-        console.error("Error getting dogs")
+        console.error("Error getting master data")
         res.send({msg: error});
     })
 })
 
-//Retrieve Dogs from this app DB
-app.get('/DogCollection', function (req, res) {
+//Retrieve Master Data from this app DB
+app.get('/MasterDataCollection', function (req, res) {
     db.Select().then((data) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json');
         res.send(data);
     })
     .catch((error) => {
-        console.error("Error getting dog collection")
+        console.error("Error getting master data collection")
         res.send({msg: error});
     })
 })
-//Endpoint to Insert BPs on the Apps DB (Postgres)
-app.post('/Dog', function (req, res) {
-    db.Insert(req.body.dog)
+
+//Endpoint to Insert Master Data on the Apps DB (Postgres)
+app.post('/MasterData', function (req, res) {
+    db.Insert(req.body)
         .then(() => {
             res.statusCode = 204
             res.send();
         })
         .catch((error) => {
-            console.error("Error getting dog collection")
+            console.error("Error getting master data collection")
             res.send({msg: error});
         })
 });
@@ -72,12 +74,11 @@ app.post('/Dog', function (req, res) {
 //EndPoint to Main page 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'views/index.html')));
 
-
 // VII. Port binding
 // Export services via port binding
 var port = process.env.PORT || 8080
 const server = app.listen(port, function () {
-  console.log('12 dogs app listening on port ' + port);
+  console.log('12 factor app listening on port ' + port);
 });
 
 // IX. Disposability

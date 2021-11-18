@@ -1,4 +1,4 @@
-# 12-dogs-app
+# 12-factor-app
 [![License: Apache2](https://img.shields.io/badge/License-Apache2-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description  
@@ -19,8 +19,7 @@ cf push --random-route
 ```
 **STEP 3** - Set the environment variables using the following command. 
 ```bash
-cf set-env 12-dogs DOG_BREED spaniel
-cf set-env 12-dogs DOG_SUBBREED cocker
+cf set-env 12-factor MASTERDATA products 
 ```
 
 **STEP 4 ** - Create the DB service Instance
@@ -31,7 +30,7 @@ cf marketplace
 
 **STEP 5** - Restart the app
 ```bash
-cf restart 12-dogs
+cf restart 12-factor
 ```
 
 **STEP 6** - Run the app on the **route** displayed in the terminal

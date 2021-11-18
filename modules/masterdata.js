@@ -1,24 +1,24 @@
 const axios = require('axios');
 
 module.exports = {
-    GetDog: function () {
-        return (GetDog());
+    GetMasterData: function () {
+        return (GetMasterData());
     }
 }
-let GetDog = function () {
+let GetMasterData = function () {
     return new Promise(function (resolve, reject) {    
         
         // III - Store config in environment
-        console.log(`Getting random ${process.env.DOG_SUBBREED} ${process.env.DOG_BREED} pics`)
+        console.log(`Getting random ${process.env.MASTERDATA} master data`)
         axios.request({
-            url: "/api/breed/"
-                +process.env.DOG_BREED+"/"
-                +process.env.DOG_SUBBREED+"/images/random/1",
+            url: "/"
+                +process.env.MASTERDATA
+                +"?noofRecords=1&idStarts="+Math.floor((Math.random() * 100) + 1),
             method: "GET",
-            baseURL: "https://dog.ceo",
+            baseURL: "https://hub.dummyapis.com",
         }).then((res) => {
             if(res.data.message){
-                console.log(res.data.message.length + " Dog pics retrieved")
+                console.log(res.data.message.length + " Master data retrieved")
                 resolve(res.data.message)
             }
             resolve(res.data)

@@ -1,5 +1,5 @@
 {
-  "name": "btp-12-dogs-app",
+  "name": "btp-12-factor-app",
   "version": "1.0.0",
   "description": "An example of 12 factor application",
   "main": "app.js",
@@ -9,19 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ralphive/btp-12-dogs-app.git"
+    "url": "git+https://github.com/mendesthi/btp-12-factor-app.git"
   },
   "keywords": [
     "12",
     "factor"
   ],
-  "author": "@Ralphive",
+  "author": "@mendesthi",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/Ralphive/btp-12-dogs-app/issues"
+    "url": "https://github.com/mendesthi/btp-12-factor-app/issues"
   },
-  "homepage": "https://github.com/Ralphive/btp-12-dogs-app#readme",
- 
+  "homepage": "https://github.com/mendesthi/btp-12-factor-app#readme",
   "//": "II Dependencies - Explicitly declare and isolate dependencies",
   "dependencies": {
     "axios": "^0.21.2",
